@@ -1,11 +1,11 @@
-import pasteModel from "../models/paste.model";
+import pasteModel from "../models/paste.model.js";
 import generatedId from "../utils/generatedID.js";
 
 //create a new paste
 
 export const createPaste = async (req, res, next) => {
   try {
-    const { content, expiresInMinutes } = req.body;
+    const { content, expiresInMinutes,maxViews } = req.body;
 
     //validation
     if (!content || content.trim() == "") {
