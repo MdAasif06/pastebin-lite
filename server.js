@@ -15,6 +15,10 @@ app.use(errorHandler)
 
 //route
 app.use('/api/pastes',routePastes)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
 
 
 const PORT = process.env.PORT || 5000;
