@@ -21,9 +21,10 @@ export const createPaste = async (req, res, next) => {
       expiresAT,
       maxViews: maxViews || null,
     });
+    const fullUrl = `${req.protocol}://${req.get("host")}/api/pastes/${paste.pasteId}`;
     return res.status(200).json({
       id: paste.pasteId,
-      link: `/api/pastes/${paste.pasteId}`,
+      link: fullUrl,
     });
   } catch (error) {
     next(error);
