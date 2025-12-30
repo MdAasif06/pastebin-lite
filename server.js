@@ -15,8 +15,12 @@ app.use(errorHandler)
 
 //route
 app.use('/api/pastes',routePastes)
+
+app.get('/',(req,res)=>{
+  res.status(200).json({status:"Welcome to pastebin backend"})
+})
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "OK" });
+  res.status(200).json({ status: "health route working good" });
 });
 
 
